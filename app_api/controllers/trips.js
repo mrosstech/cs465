@@ -1,46 +1,50 @@
 const mongoose = require('mongoose');
-const Model = mongoose.model('trips');
+const Trip= require('../models/trips');
 
 /* Get trips from DB */
 // GET: /trips - lists all the trips
 const tripList = async (req, res) => {
-    Model
-        .find({})
-        .exec((err, trips) => {
+    await Trip
+        .find()
+        .then((trips) => {
             if (!trips) {
+                console.log("No trips found");
                 return res
                     .status(404)
                     .json({ "message": "trips not found" }); 
-            } else if (err) {
-                return res
-                    .status(404)
-                    .json(err);
-            } else {
+            }  else {
+                console.log("Returning trips");
                 return res
                     .status(200)
                     .json(trips);
             }
+        }).catch( (err) => {
+            console.log("Error in finding trips" + err);
+            return res
+                .status(404)
+                .json(err);
         });
 }
 
 // GET: /trips/:tripCode - returns a single trip
 const tripsFindByCode = async (req, res) => {
-    Model
+    Trip
         .find({ "code": req.params.tripCode })
-        .exec((err, trip) => {
+        .then((trip) => {
             if (!trip) {
                 return res
                     .status(404)
                     .json({ message: "trip not found"});
-            } else if (err) {
-                return res
-                    .status(404)
-                    .json(err);
-            } else {
+            } 
+            else {
                 return res
                     .status(200)
                     .json(trip);
             }
+        }).catch( (err) => {
+            return res
+                .status(404)
+                .json(err);
         });
 };
 
@@ -52,6 +56,6 @@ const trips = (req, res) => {
 };
 
 module.exports = {
-    tripsList,
+    tripList,
     tripsFindByCode
 };

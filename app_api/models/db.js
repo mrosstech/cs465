@@ -6,10 +6,8 @@ console.log("Got host: " + host);
 const dbURI = `mongodb+srv://${host}/travlr?retryWrites=true&w=majority`;
 const readLine = require('readline');
 
-//mongoose.set('useUnifiedTopology', true);
 const connect = () => {
     setTimeout(() => mongoose.connect(dbURI, {
-        useCreateIndex: true
     }), 1000);
 }
 
@@ -60,6 +58,6 @@ process.on('SIGTERM', () => {
     });
 });
 
-//connect();
+connect();
 
 require('./trips');
