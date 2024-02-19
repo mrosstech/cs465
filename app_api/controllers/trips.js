@@ -58,7 +58,7 @@ const trips = (req, res) => {
 
 /* Add Trip */
 const tripsAddTrip = async(req, res) => {
-    model
+    Trip
     .create({
         code: req.body.code,
         name: req.body.name,
@@ -68,8 +68,8 @@ const tripsAddTrip = async(req, res) => {
         perPerson: req.body.perPerson,
         image: req.body.image,
         description: req.body.description
-    },
-    (err, trip) => {
+    })
+    .then((err, trip) => {
         if (err) {
             return res
                 .status(400)
@@ -79,12 +79,12 @@ const tripsAddTrip = async(req, res) => {
                 .status(201)
                 .json(trip);
         }
-    });
+    })
 }
 
 const tripsUpdateTrip = async(req, res) => {
     console.log(req.body);
-    model 
+    Trip
         .findOneAndUpdate({ 'code': req.params.tripCode }, {
             code: req.body.code,
             name: req.body.name,
