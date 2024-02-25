@@ -10,6 +10,10 @@ import { TripCardComponent } from './trip-card/trip-card.component';
 import { TripDataService } from './services/trip-data.service';
 import { AddTripComponent } from './add-trip/add-trip.component';
 import { EditTripComponent } from './edit-trip/edit-trip.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,17 @@ import { EditTripComponent } from './edit-trip/edit-trip.component';
     TripListingComponent,
     TripCardComponent,
     AddTripComponent,
-    EditTripComponent
+    EditTripComponent,
+    HomeComponent,
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     ReactiveFormsModule,
-    AppRoutingModule 
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [
     TripDataService
