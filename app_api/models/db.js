@@ -34,7 +34,7 @@ if (process.platform == 'win32') {
 }
 
 const gracefulShutdown = (msg, callback) => {
-    mongoose.connection.close( () => {
+    mongoose.connection.close().then( () => {
         console.log(`Mongoose disconnected through ${msg}`);
         callback();
     });
@@ -61,3 +61,4 @@ process.on('SIGTERM', () => {
 connect();
 
 require('./trips');
+require('./users');
