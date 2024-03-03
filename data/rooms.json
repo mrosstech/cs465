@@ -1,0 +1,20 @@
+[
+    {
+        "name": "First Class Room",
+        "image": "first-class.jpg",
+        "description": "The first class room is truly a first-class experience.  We pamper you with rose petals on the bed followed by turn-down service at night complete with a chocolate mint.",
+        "dayRate": "220"
+    },
+    {
+        "name": "Deluxe Room",
+        "image": "deluxe.jpg",
+        "description": "The deluxe room will have you feeling pampered while you gaze out on the amazing ocean-front vistas these rooms provide.",
+        "dayRate": "150"
+    },
+    {
+        "name": "Suite Room",
+        "image": "suite.jpg",
+        "description": "Travelling with a larger family? The suite room is for you.  Four beds and two bathrooms on in a townhouse style accommodation will ensure everyone has the room they need to fully enjoy our resort's ammenities.",
+        "dayRate": "180"
+    }
+]
